@@ -4,6 +4,34 @@
     {
       "src": "api/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/Image/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/Songs/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "CSS/responsive.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "CSS/style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "JS/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
