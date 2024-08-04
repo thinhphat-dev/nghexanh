@@ -49,9 +49,7 @@
       /* Ensure the popup is above other elements */
     }
 
-
     #userTable {
-      
       width: 100%;
       border-collapse: collapse;
     }
@@ -85,255 +83,247 @@
   </style>
 </head>
 <body onload="preLoader()">
-  <div id="loading"></div>
-  <!-- Go to Up button -->
-  <button onclick="topFunction()" id="moveTopBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
-  <!-- Navbar  -->
-  <nav class="navbar">
-    <div class="content">
-      <div class="logo"><a href="#">Nghe - Xanh</a></div>
-      <ul class="menu-list">
-        <div class="icon cancel-btn">
-          <i class="fas fa-times"></i>
-        </div>
-        <li><a href="#play">Chơi nhạc</a></li>
-        <li><a href="#songs">Chọn chất Xanh</a></li>
-        <li><a href="#about">Về chúng tôi</a></li>
-        <li><a href="#userList">Danh sách</a></li>
-        <li><a href="#contact">Liên hệ</a></li>
-        <li><a href="#" onclick="openPopup()">Đồng hành</a></li>
-      </ul>
-      <div class="icon menu-btn">
-        <i class="fas fa-bars"></i>
+<div id="loading"></div>
+<!-- Go to Up button -->
+<button onclick="topFunction()" id="moveTopBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
+<!-- Navbar  -->
+<nav class="navbar">
+  <div class="content">
+    <div class="logo"><a href="#">Nghe - Xanh</a></div>
+    <ul class="menu-list">
+      <div class="icon cancel-btn">
+        <i class="fas fa-times"></i>
       </div>
-    </div>
-  </nav>
-
-  <div class="banner"></div>
-  <!-- PLAY PAGE -->
-  <section class="play" id="play">
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="left-col">
-              <h1 id="songName"> Nghe - Xanh Lofi 1 </h1>
-              <h5>~<em id="songBy">Nghe - Xanh Lofi 1</em></h5>
-            </div>
-            <div class="right-col">
-              <img src="./assets/Image/play.png" alt="play-button" id="icon">
-              <p style="color: white;">Play Nghe - Xanh</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <audio id="song">
-        <source src="./assets/Songs/Nghe-Xanh Lofi 1.mp3" type="audio/mp3">
-      </audio>
-    </div>
-  </section>
-
-  <!-- SELECT SONGS -->
-  <section class="songs" id="songs">
-    <div class="container">
-      <div class="songs-header">
-        <h2 style="color: white;" class="title">Chọn một thế giới Xanh chuẩn "gu" bạn: </h2>
-        <a class="play-song-btn" href="#play">Chơi nhạc</a>
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn">Nghe - Xanh Lofi 1</button>
-        <button type="button" class="btn">Nghe - Xanh Alpha 1</button>
-        <button type="button" class="btn">Nghe - Xanh Piano 1</button>
-        <button type="button" class="btn">Nghe - Xanh Lofi 2</button>
-        <button type="button" class="btn">Nghe - Xanh Alpha 2</button>
-        <button type="button" class="btn">Nghe - Xanh Piano 2</button>
-        <button type="button" class="btn">Nghe - Xanh Lofi 3</button>
-        <button type="button" class="btn">Nghe - Xanh Alpha 3</button>
-        <button type="button" class="btn">Nghe - Xanh Piano 3</button>
-        <button type="button" class="btn">Nghe - Xanh Lofi 4</button>
-        <button type="button" class="btn">Nghe - Xanh Alpha 4</button>
-        <button type="button" class="btn">Nghe - Xanh Piano 4</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-header">
-        <h2 class="title">Nghe - Xanh: </h2>
-      </div>
-      <div class="about-content">
-        <div>
-          <p id="aboutSong">
-            Nhạc lofi mang lại cảm giác thư giãn và yên bình, giúp tâm hồn bạn được tĩnh lặng và bình an. Hãy cùng thưởng thức
-            'Nghe-Xanh Lofi 1' và để âm nhạc giúp bạn thư giãn sau một ngày dài. Chúng tôi hy vọng rằng qua mỗi lần bạn lắng nghe, bạn sẽ cảm nhận được giá trị của việc bảo vệ môi trường.
-            Hãy tham gia cùng chúng tôi trong dự án trồng cây gây quỹ. Mỗi lần phát bài hát này, bạn đang góp phần tạo nên một thế giới xanh hơn. Hãy cùng nhau trồng cây và bảo vệ môi trường vì một tương lai bền vững.
-          </p>
-          <a style="color: white; font-family: Arial, Helvetica, sans-serif;" class="download-song" href="#" id="download" onclick="checkRegistration()">Lưu giữ chất Xanh</a>
-        </div>
-        <div class="image-container">
-          <img src="./assets/Image/nghe-xanh-lofi1.webp" alt="song-banner" id="banner">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- USER LIST SECTION -->
-  <!-- USER LIST SECTION -->
-  <section class="user-list" id="userList">
-    <div class="container">
-      <h1 style=" margin-bottom: 50px; font-size: 45px; font-family: Arial, Helvetica, sans-serif;" class="title">Danh sách bạn đồng hành cùng Nghe - Xanh</h1>
-      <table id="userTable">
-        <thead>
-          <tr>
-            <th>Họ và Tên</th>
-            <th>Tuổi</th>
-            <th>Giới tính</th>
-            <th>Email</th>
-            <th>Ý kiến đóng góp</th>
-          </tr>
-        </thead>
-        <tbody id="userTableBody">
-          <!-- Rows will be added here dynamically -->
-        </tbody>
-      </table>
-      <div id="totalUsers" style="font-size: 25px; font-family: Arial, Helvetica, sans-serif; margin-top: 20px;"></div>
-      <div id="totalDonation" style="font-size: 25px; font-family: Arial, Helvetica, sans-serif; margin-top: 10px;"></div>
-    </div>
-  </section>
-  <section class="contact" id="contact">
-    <h2 style="color: white; font-family: Arial, Helvetica, sans-serif;" class="title">Kết nối với chúng tôi để cùng lan tỏa Nghe - Xanh</h2>
-    <div class="social-media">
-      <a href="https://www.facebook.com/profile.php?id=61562984820420" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=61562984820420" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://github.com/nqa-tech" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-
-    <footer class="footer">
-      <p>© Design by <a href="https://github.com/nqa-tech" target="_blank">Nguyễn Quốc Anh</a></p>
-      <p>Contributed by <a href="https://github.com/nqa-tech" target="_blank">Lê Thịnh Phát</a></p>
-    </footer>
-  </section>
-
-  <!-- POPUP -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close-btn" onclick="closePopup()">&times;</span>
-      <h2>Đồng hành cùng Nghe - Xanh</h2>
-      
-      <div style=" font-family: Arial, Helvetica, sans-serif;" id="projectDesc">
-        Nghe - Xanh là dự án hướng đến trải nghiệm người dùng, mọi người khi đăng kí thành viên vừa có thể 
-        nghe nhạc vừa ủng hộ vào quỹ trồng cây PHỦ XANH 7,8 HECTA (6.000 CÂY XANH ĐÔ THỊ) tại Trường Đại học 
-        Nông Lâm TP. Hồ Chí Minh. Từ tháng 6-12/2025, Trung tâm GreenViet thực hiện gây quỹ cho dự án phủ xanh 7,8 ha cây xanh. 
-        Mỗi lượt đăng ký thành viên sẽ ủng hộ 5000đ vào quỹ.
-      </div>
-      <form id="registrationForm">
-        <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="fullName">Họ và Tên:</label>
-        <input type="text" id="fullName" name="fullName" required>
-
-        <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="age">Tuổi:</label>
-        <input type="number" id="age" name="age" required>
-
-        <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight">Giới tính:</label>
-        <div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="male" name="gender" value="male" required checked>
-            <label style=" font-family: Arial, Helvetica, sans-serif;" class="form-check-label" for="male">Nam</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="female" name="gender" value="female">
-            <label style=" font-family: Arial, Helvetica, sans-serif;" class="form-check-label" for="female">Nữ</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="other" name="gender" value="other">
-            <label style=" font-family: Arial, Helvetica, sans-serif;" class="form-check-label" for="other">Khác</label>
-          </div>
-        </div>
-
-        <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="email">Email của bạn:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="comment">Ý kiến đóng góp:</label>
-        <input type="text" id="comment" name="comment" required>
-
-        <button type="submit" onclick="registerUser(event)">Tham gia</button>
-      </form>
+      <li><a href="#play">Chơi nhạc</a></li>
+      <li><a href="#songs">Chọn chất Xanh</a></li>
+      <li><a href="#about">Về chúng tôi</a></li>
+      <li><a href="#userList">Danh sách</a></li>
+      <li><a href="#contact">Liên hệ</a></li>
+      <li><a href="#" onclick="openPopup()">Đồng hành</a></li>
+    </ul>
+    <div class="icon menu-btn">
+      <i class="fas fa-bars"></i>
     </div>
   </div>
+</nav>
 
+<div class="banner"></div>
+<!-- PLAY PAGE -->
+<section class="play" id="play">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="left-col">
+            <h1 id="songName"> Nghe - Xanh Lofi 1 </h1>
+            <h5>~<em id="songBy">Nghe - Xanh Lofi 1</em></h5>
+          </div>
+          <div class="right-col">
+            <img src="./assets/Image/play.png" alt="play-button" id="icon">
+            <p style="color: white;">Play Nghe - Xanh</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="song">
+      <source src="./assets/Songs/Nghe-Xanh Lofi 1.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</section>
 
+<!-- SELECT SONGS -->
+<section class="songs" id="songs">
+  <div class="container">
+    <div class="songs-header">
+      <h2 style="color: white;" class="title">Chọn một thế giới Xanh chuẩn "gu" bạn: </h2>
+      <a class="play-song-btn" href="#play">Chơi nhạc</a>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn">Nghe - Xanh Lofi 1</button>
+      <button type="button" class="btn">Nghe - Xanh Alpha 1</button>
+      <button type="button" class="btn">Nghe - Xanh Piano 1</button>
+      <button type="button" class="btn">Nghe - Xanh Lofi 2</button>
+      <button type="button" class="btn">Nghe - Xanh Alpha 2</button>
+      <button type="button" class="btn">Nghe - Xanh Piano 2</button>
+      <button type="button" class="btn">Nghe - Xanh Lofi 3</button>
+      <button type="button" class="btn">Nghe - Xanh Alpha 3</button>
+      <button type="button" class="btn">Nghe - Xanh Piano 3</button>
+      <button type="button" class="btn">Nghe - Xanh Lofi 4</button>
+      <button type="button" class="btn">Nghe - Xanh Alpha 4</button>
+      <button type="button" class="btn">Nghe - Xanh Piano 4</button>
+    </div>
+  </div>
+</section>
 
-  <!-- Import JS File -->
-  <script src="./JS/script.js"></script>
-  <script src="./RegisterServiceWorker.js"></script>
-  <script>
-    function openPopup() {
-      document.getElementById("popup").style.display = "block";
-    }
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-header">
+      <h2 class="title">Nghe - Xanh: </h2>
+    </div>
+    <div class="about-content">
+      <div>
+        <p id="aboutSong">
+          Nhạc lofi mang lại cảm giác thư giãn và yên bình, giúp tâm hồn bạn được tĩnh lặng và bình an. Hãy cùng thưởng thức
+          'Nghe-Xanh Lofi 1' và để âm nhạc giúp bạn thư giãn sau một ngày dài. Chúng tôi hy vọng rằng qua mỗi lần bạn lắng nghe, bạn sẽ cảm nhận được giá trị của việc bảo vệ môi trường.
+          Hãy tham gia cùng chúng tôi trong dự án trồng cây gây quỹ. Mỗi lần phát bài hát này, bạn đang góp phần tạo nên một thế giới xanh hơn. Hãy cùng nhau trồng cây và bảo vệ môi trường vì một tương lai bền vững.
+        </p>
+        <a style="color: white; font-family: Arial, Helvetica, sans-serif;" class="download-song" href="#" id="download" onclick="checkRegistration()">Lưu giữ chất Xanh</a>
+      </div>
+      <div class="image-container">
+        <img src="./assets/Image/nghe-xanh-lofi1.webp" alt="song-banner" id="banner">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- USER LIST SECTION -->
+<section class="user-list" id="userList">
+  <div class="container">
+    <h1 style=" margin-bottom: 50px; font-size: 45px; font-family: Arial, Helvetica, sans-serif;" class="title">Danh sách bạn đồng hành cùng Nghe - Xanh</h1>
+    <table id="userTable">
+      <thead>
+      <tr>
+        <th>Họ và Tên</th>
+        <th>Tuổi</th>
+        <th>Giới tính</th>
+        <th>Email</th>
+        <th>Ý kiến đóng góp</th>
+      </tr>
+      </thead>
+      <tbody id="userTableBody">
+      <!-- Rows will be added here dynamically -->
+      </tbody>
+    </table>
+    <div id="totalUsers" style="font-size: 25px; font-family: Arial, Helvetica, sans-serif; margin-top: 20px;"></div>
+    <div id="totalDonation" style="font-size: 25px; font-family: Arial, Helvetica, sans-serif; margin-top: 10px;"></div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <h2 style="color: white; font-family: Arial, Helvetica, sans-serif;" class="title">Kết nối với chúng tôi để cùng lan tỏa Nghe - Xanh</h2>
+  <div class="social-media">
+    <a href="https://www.facebook.com/profile.php?id=61562984820420" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=61562984820420" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://github.com/nqa-tech" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
 
-    function closePopup() {
+  <footer class="footer">
+    <p>© Design by <a href="https://github.com/nqa-tech" target="_blank">Nguyễn Quốc Anh</a></p>
+    <p>Contributed by <a href="https://github.com/nqa-tech" target="_blank">Lê Thịnh Phát</a></p>
+  </footer>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2>Đồng hành cùng Nghe - Xanh</h2>
+
+    <div style=" font-family: Arial, Helvetica, sans-serif;" id="projectDesc">
+      Nghe - Xanh là dự án hướng đến trải nghiệm người dùng, mọi người khi đăng kí thành viên vừa có thể
+      nghe nhạc vừa ủng hộ vào quỹ trồng cây PHỦ XANH 7,8 HECTA (6.000 CÂY XANH ĐÔ THỊ) tại Trường Đại học
+      Nông Lâm TP. Hồ Chí Minh. Từ tháng 6-12/2025, Trung tâm GreenViet thực hiện gây quỹ cho dự án phủ xanh 7,8 ha cây xanh.
+      Mỗi lượt đăng ký thành viên sẽ ủng hộ 5000đ vào quỹ.
+    </div>
+    <form id="registrationForm">
+      <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="fullName">Họ và Tên:</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="age">Tuổi:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight">Giới tính:</label>
+      <div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="male" name="gender" value="male" required checked>
+          <label style=" font-family: Arial, Helvetica, sans-serif;" class="form-check-label" for="male">Nam</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="female" name="gender" value="female">
+          <label style=" font-family: Arial, Helvetica, sans-serif;" class="form-check-label" for="female">Nữ</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="other" name="gender" value="other">
+          <label style=" font-family: Arial, Helvetica, sans-serif;" class="form-check-label" for="other">Khác</label>
+        </div>
+      </div>
+
+      <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="email">Email của bạn:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label style=" font-family: Arial, Helvetica, sans-serif;" class="highlight" for="comment">Ý kiến đóng góp:</label>
+      <input type="text" id="comment" name="comment" required>
+
+      <button type="submit" onclick="registerUser(event)">Tham gia</button>
+    </form>
+  </div>
+</div>
+
+<!-- Import JS File -->
+<script src="./JS/script.js"></script>
+<script src="./RegisterServiceWorker.js"></script>
+<script>
+  function openPopup() {
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  // Close the popup when clicking outside of it
+  window.onclick = function(event) {
+    if (event.target == document.getElementById("popup")) {
       document.getElementById("popup").style.display = "none";
     }
+  }
 
-    // Close the popup when clicking outside of it
-    window.onclick = function(event) {
-      if (event.target == document.getElementById("popup")) {
-        document.getElementById("popup").style.display = "none";
-      }
+  let isRegistered = false;
+
+  function registerUser(event) {
+    event.preventDefault();
+
+    const user = {
+      fullName: document.getElementById('fullName').value,
+      age: document.getElementById('age').value,
+      gender: document.querySelector('input[name="gender"]:checked').value,
+      email: document.getElementById('email').value,
+      comment: document.getElementById('comment').value
+    };
+
+    fetch('https://nghexanh1-c1z0f4b6v-thinhphats-projects.vercel.app/api/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+            .then(response => {
+              if (response.ok) {
+                alert("Đăng ký thành công! Bây giờ bạn có thể tải nhạc.");
+                closePopup();
+                loadUsers(); // Reload user list after successful registration
+              } else {
+                alert("Đã có lỗi xảy ra. Vui lòng thử lại.");
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert("Đã có lỗi xảy ra. Vui lòng thử lại.");
+            });
+  }
+
+  function checkRegistration() {
+    if (!isRegistered) {
+      openPopup();
+    } else {
+      const downloadLink = document.getElementById("download");
+      downloadLink.href = "./assets/Songs/Nghe-Xanh Lofi 1.mp3";
+      downloadLink.setAttribute("download", "Song.mp3");
+      downloadLink.click();
     }
-
-    let isRegistered = false;
-
-    function registerUser(event) {
-      event.preventDefault();
-
-      const user = {
-        fullName: document.getElementById('fullName').value,
-        age: document.getElementById('age').value,
-        gender: document.querySelector('input[name="gender"]:checked').value,
-        email: document.getElementById('email').value,
-        comment: document.getElementById('comment').value
-      };
-
-      fetch('http://localhost:8081/api/users/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      })
-        .then(response => {
-          if (response.ok) {
-            alert("Đăng ký thành công! Bây giờ bạn có thể tải nhạc.");
-            closePopup();
-            loadUsers(); // Reload user list after successful registration
-          } else {
-            alert("Đã có lỗi xảy ra. Vui lòng thử lại.");
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert("Đã có lỗi xảy ra. Vui lòng thử lại.");
-        });
-    }
-
-    
-
-    // Load user list on page load
-   ;
-
-    function checkRegistration() {
-      if (!isRegistered) {
-        openPopup();
-      } else {
-        const downloadLink = document.getElementById("download");
-        downloadLink.href = "./assets/Songs/Nghe-Xanh Lofi 1.mp3";
-        downloadLink.setAttribute("download", "Song.mp3");
-        downloadLink.click();
-      }
-    }
-  </script>
+  }
+</script>
 </body>
 </html>
