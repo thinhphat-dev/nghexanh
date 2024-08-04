@@ -1,5 +1,12 @@
 {
-  "posts": [
-    { "id": 1, "title": "Hello World" }
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Nguyen Van A",
+      "age": 25,
+      "gender": "male",
+      "email": "nguyenvana@example.com",
+      "comment": "No comment"
+    }
   ]
 }
