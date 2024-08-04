@@ -9,14 +9,14 @@ menuBtn.onclick = () => {
   menuBtn.classList.add("hide");
   cancelBtn.classList.add("show");
   body.classList.add("disabledScroll");
-}
+};
 
 cancelBtn.onclick = () => {
   menu.classList.remove("active");
   menuBtn.classList.remove("hide");
   cancelBtn.classList.remove("show");
   body.classList.remove("disabledScroll");
-}
+};
 
 const siteLogo = document.querySelector('.logo a');
 const navLinks = document.querySelectorAll('.menu-list li');
@@ -31,7 +31,7 @@ navLinks.forEach(item => {
 
 playSongBtn.onclick = () => {
   removeActiveClass();
-}
+};
 
 siteLogo.onclick = () => {
   removeActiveClass();
@@ -49,7 +49,7 @@ window.onscroll = () => {
   } else {
     moveTopBtn.style.display = "none";
   }
-}
+};
 
 const playSong = document.getElementById("song");
 var icon = document.getElementById("icon");
@@ -113,12 +113,12 @@ function getData(index) {
       download: "./assets/Songs/Nghe-Xanh Lofi 1.mp3",
       aboutSong: "Nhạc lofi mang lại cảm giác thư giãn và yên bình..."
     },
-    // Các phần tử khác tương ứng với các nút
+    // Add more song data here...
   ];
   return data[index];
 }
 
-const apiUrl = 'https://your-vercel-app-url.vercel.app/api/users';
+const apiUrl = 'https://nghexanh1-hjph3xdlt-thinhphats-projects.vercel.app/api/users';
 
 function loadUsers() {
   fetch(apiUrl)
