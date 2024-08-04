@@ -25,19 +25,16 @@ sql.connect(config, (err) => {
     else console.log('Connected to SQL Server');
 });
 
-// API chèn dữ liệu vào bảng app_user
+// API chèn dữ liệu vào bảng
 app.post('/insert', async (req, res) => {
-    const { fullName, age, gender, email, comment } = req.body;
+    const { name, age } = req.body;
 
     try {
         const pool = await sql.connect(config);
         const result = await pool.request()
-            .input('fullName', sql.NVarChar, fullName)
+            .input('name', sql.VarChar, name)
             .input('age', sql.Int, age)
-            .input('gender', sql.NVarChar, gender)
-            .input('email', sql.NVarChar, email)
-            .input('comment', sql.NVarChar, comment)
-            .query('INSERT INTO app_user (full_name, age, gender, email, comment) VALUES (@fullName, @age, @gender, @email, @comment)');
+            .query('INSERT INTO your_table (name, age) VALUES (@name, @age)');
 
         res.send('Data inserted successfully');
     } catch (err) {
