@@ -14,15 +14,15 @@
       "use": "@vercel/static"
     },
     {
-      "src": "CSS/**/*",
+      "src": "CSS/**",
       "use": "@vercel/static"
     },
     {
-      "src": "JS/**/*",
+      "src": "JS/*",
       "use": "@vercel/static"
     },
     {
-      "src": "public/**/*",
+      "src": "public/**",
       "use": "@vercel/static"
     }
   ],
