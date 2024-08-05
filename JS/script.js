@@ -90,7 +90,7 @@ const download = document.getElementById("download");
 
 buttons.forEach((button, index) => {
   button.addEventListener("click", () => {
-    icon.src = "./assets/Image/play.png";
+    icon.src = "assets/Image/play.png";
     const data = getData(index);
     photo.src = data.photo;
     song.src = data.song;
@@ -105,12 +105,12 @@ buttons.forEach((button, index) => {
 function getData(index) {
   const data = [
     {
-      photo: "./assets/Image/nghe-xanh-lofi1.webp",
-      song: "./assets/Songs/Nghe-Xanh Lofi 1.mp3",
+      photo: "assets/Image/nghe-xanh-lofi1.webp",
+      song: "assets/Songs/Nghe-Xanh Lofi 1.mp3",
       songName: "Nghe - Xanh Lofi 1",
       songBy: "Lofi Beats",
       title: "Nghe - Xanh Lofi 1",
-      download: "./assets/Songs/Nghe-Xanh Lofi 1.mp3",
+      download: "assets/Songs/Nghe-Xanh Lofi 1.mp3",
       aboutSong: "Nhạc lofi mang lại cảm giác thư giãn và yên bình..."
     },
     // Add more song data here...
