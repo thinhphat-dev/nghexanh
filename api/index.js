@@ -1,12 +1,15 @@
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router('api/db.json'); // Đảm bảo đường dẫn đúng
-const middlewares = jsonServer.defaults();
 
-server.use(middlewares);
-server.use('/api', router);
-
+const express = require('express');
+const data = require('api/data.js');
+const app = express();
 const port = process.env.PORT || 3000;
-server.listen(port, () => {
-    console.log(`JSON Server is running on port ${port}`);
+
+app.use(express.json());
+
+app.get('/api', (req, res) => {
+    res.json(data);
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
