@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0e1313" />
-  <link rel="manifest" href="./manifest.json">
-  <link rel="shortcut icon" href="./public/banner2.png" type="image/x-icon">
-  <link rel="apple-touch-icon" href="./public/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="public/banner2.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="public/apple-touch-icon.png">
 
   <title id="title">Nghe - Xanh</title>
 
@@ -120,14 +120,14 @@
             <h5>~<em id="songBy">Nghe - Xanh Lofi 1</em></h5>
           </div>
           <div class="right-col">
-            <img src="./assets/Image/play.png" alt="play-button" id="icon">
+            <img src="assets/Image/play.png" alt="play-button" id="icon">
             <p style="color: white;">Play Nghe - Xanh</p>
           </div>
         </div>
       </div>
     </div>
     <audio id="song">
-      <source src="./assets/Songs/Nghe-Xanh Lofi 1.mp3" type="audio/mp3">
+      <source src="assets/Songs/Nghe-Xanh Lofi 1.mp3" type="audio/mp3">
     </audio>
   </div>
 </section>
@@ -172,7 +172,7 @@
         <a style="color: white; font-family: Arial, Helvetica, sans-serif;" class="download-song" href="#" id="download" onclick="checkRegistration()">Lưu giữ chất Xanh</a>
       </div>
       <div class="image-container">
-        <img src="./assets/Image/nghe-xanh-lofi1.webp" alt="song-banner" id="banner">
+        <img src="assets/Image/nghe-xanh-lofi1.webp" alt="song-banner" id="banner">
       </div>
     </div>
   </div>
@@ -262,8 +262,8 @@
 </div>
 
 <!-- Import JS File -->
-<script src="./JS/script.js"></script>
-<script src="./RegisterServiceWorker.js"></script>
+<script src="JS/script.js"></script>
+<script src="RegisterServiceWorker.js"></script>
 <script>
   function openPopup() {
     document.getElementById("popup").style.display = "block";
@@ -320,7 +320,7 @@
       openPopup();
     } else {
       const downloadLink = document.getElementById("download");
-      downloadLink.href = "./assets/Songs/Nghe-Xanh Lofi 1.mp3";
+      downloadLink.href = "assets/Songs/Nghe-Xanh Lofi 1.mp3";
       downloadLink.setAttribute("download", "Song.mp3");
       downloadLink.click();
     }

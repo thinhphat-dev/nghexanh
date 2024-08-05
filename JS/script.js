@@ -59,10 +59,10 @@ icon.addEventListener("click", playMusic);
 function playMusic() {
   if (playSong.paused) {
     playSong.play();
-    icon.src = "./assets/Image/pause.png";
+    icon.src = "assets/Image/pause.png";
   } else {
     playSong.pause();
-    icon.src = "./assets/Image/play.png";
+    icon.src = "assets/Image/play.png";
   }
 }
 
@@ -118,7 +118,7 @@ function getData(index) {
   return data[index];
 }
 
-const apiUrl = 'https://nghexanh1-hjph3xdlt-thinhphats-projects.vercel.app/api/users';
+const apiUrl = 'https://nghexanh1.vercel.app/api/users';
 
 function loadUsers() {
   fetch(apiUrl)
