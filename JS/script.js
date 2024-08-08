@@ -113,85 +113,75 @@ function getData(index) {
       download: "assets/Songs/Nghe-Xanh Lofi 1.mp3",
       aboutSong: "Nhạc lofi mang lại cảm giác thư giãn và yên bình..."
     },
-    // Add more song data here...
+    // Thêm dữ liệu bài hát khác ở đây...
   ];
   return data[index];
 }
 
-const apiUrl = 'https://nghexanh1.vercel.app/api/users';
-
-function loadUsers() {
-  fetch(apiUrl)
-      .then(response => response.json())
-      .then(users => {
-        const userTableBody = document.getElementById('userTableBody');
-        userTableBody.innerHTML = '';
-
-        users.forEach(user => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-          <td>${user.fullName}</td>
-          <td>${user.age}</td>
-          <td>${user.gender === 'male' ? 'Nam' : 'Nữ'}</td>
-          <td>${user.email}</td>
-          <td>${user.comment || 'Không'}</td>
-        `;
-          userTableBody.appendChild(row);
-        });
-
-        const totalUsers = users.length;
-        const totalDonation = totalUsers * 5000;
-        const formattedDonation = totalDonation.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-
-        document.getElementById('totalUsers').innerText = `Tổng số người đăng ký: ${totalUsers}`;
-        document.getElementById('totalDonation').innerText = `Tổng số tiền sẽ quyên góp: ${formattedDonation}`;
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("Đã có lỗi xảy ra. Vui lòng thử lại.");
-      });
-}
-
-document.getElementById('userForm').addEventListener('submit', function(event) {
+function registerUser(event) {
   event.preventDefault();
 
-  const fullName = document.getElementById('fullName').value;
-  const age = document.getElementById('age').value;
-  const gender = document.getElementById('gender').value;
-  const email = document.getElementById('email').value;
-  const comment = document.getElementById('comment').value;
-
-  const userData = {
-    fullName: fullName,
-    age: age,
-    gender: gender,
-    email: email,
-    comment: comment
+  const user = {
+    fullName: document.getElementById('fullName').value,
+    age: document.getElementById('age').value,
+    gender: document.querySelector('input[name="gender"]:checked').value,
+    email: document.getElementById('email').value,
+    comment: document.getElementById('comment').value
   };
 
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData)
-  })
-      .then(response => {
-        if (response.ok) {
-          alert('User added successfully');
-          loadUsers();
-          document.getElementById('userForm').reset();
-        } else {
-          throw new Error('Failed to add user');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Đã có lỗi xảy ra. Vui lòng thử lại.');
-      });
-});
+  // Add new row to the table
+  const userTableBody = document.getElementById('userTableBody');
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${user.fullName}</td>
+    <td>${user.age}</td>
+    <td>${user.gender === 'male' ? 'Nam' : 'Nữ'}</td>
+    <td>${user.email}</td>
+    <td>${user.comment || 'Không'}</td>
+  `;
+  userTableBody.appendChild(row);
+
+  // Update total users and donation
+  const totalUsers = userTableBody.rows.length;
+  const totalDonation = totalUsers * 5000;
+  const formattedDonation = totalDonation.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+
+  document.getElementById('totalUsers').innerText = `Tổng số người đăng ký: ${totalUsers}`;
+  document.getElementById('totalDonation').innerText = `Tổng số tiền sẽ quyên góp: ${formattedDonation}`;
+
+  // Close popup and reset form
+  closePopup();
+  document.getElementById('userForm').reset();
+}
+
+document.getElementById('userForm').addEventListener('submit', registerUser);
 
 window.onload = function() {
   preLoader();
-  loadUsers();
 };
+
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// Close the popup when clicking outside of it
+window.onclick = function(event) {
+  if (event.target == document.getElementById("popup")) {
+    document.getElementById("popup").style.display = "none";
+  }
+}
+
+// Đăng ký Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
+    console.log('Service Worker Registered');
+  }).catch(function(error) {
+    console.log('Service Worker Registration failed:', error);
+  });
+} else {
+  console.log('Service Worker not supported');
+}
