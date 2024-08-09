@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         * {
-          font-family: Arial, Helvetica, sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .highlight {
@@ -51,7 +50,6 @@
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            /* Ensure the popup is above other elements */
         }
 
         #userTable {
@@ -221,7 +219,7 @@
         <a href="https://www.facebook.com/profile.php?id=61563823889710" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="#" id="twitterLink" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://github.com/nqa-tech" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/thinhphat-dev/nghexanh" target="_blank"><i class="fab fa-github"></i></a>
     </div>
 
     <footer class="footer">
@@ -300,8 +298,6 @@
         }
     }
 
-    let isRegistered = false;
-
     async function registerUser(event) {
         event.preventDefault();
 
@@ -329,18 +325,18 @@
                 const userTableBody = document.getElementById('userTableBody');
                 const row = document.createElement('tr');
                 row.innerHTML = `
-          <td>${newUser.fullName}</td>
-          <td>${newUser.age}</td>
-          <td>${newUser.gender === 'male' ? 'Nam' : 'Nữ'}</td>
-          <td>${newUser.email}</td>
-          <td>${newUser.comment || 'Không'}</td>
-        `;
+                    <td>${newUser.fullName}</td>
+                    <td>${newUser.age}</td>
+                    <td>${newUser.gender === 'male' ? 'Nam' : (newUser.gender === 'female' ? 'Nữ' : 'Khác')}</td>
+                    <td>${newUser.email}</td>
+                    <td>${newUser.comment || 'Không'}</td>
+                `;
                 userTableBody.appendChild(row);
 
                 // Update total users and donation
                 const totalUsers = userTableBody.rows.length;
                 const totalDonation = totalUsers * 5000;
-                const formattedDonation = totalDonation.toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+                const formattedDonation = totalDonation.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
                 document.getElementById('totalUsers').innerText = `Tổng số người đăng ký: ${totalUsers}`;
                 document.getElementById('totalDonation').innerText = `Tổng số tiền sẽ quyên góp: ${formattedDonation}`;
@@ -364,22 +360,22 @@
             const data = await response.json();
             const userTableBody = document.getElementById('userTableBody');
 
-            data.users.forEach(user => {
+            data.forEach(user => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-          <td>${user.fullName}</td>
-          <td>${user.age}</td>
-          <td>${user.gender === 'male' ? 'Nam' : 'Nữ'}</td>
-          <td>${user.email}</td>
-          <td>${user.comment || 'Không'}</td>
-        `;
+                    <td>${user.fullName}</td>
+                    <td>${user.age}</td>
+                    <td>${user.gender === 'male' ? 'Nam' : (user.gender === 'female' ? 'Nữ' : 'Khác')}</td>
+                    <td>${user.email}</td>
+                    <td>${user.comment || 'Không'}</td>
+                `;
                 userTableBody.appendChild(row);
             });
 
             // Update total users and donation
             const totalUsers = userTableBody.rows.length;
             const totalDonation = totalUsers * 5000;
-            const formattedDonation = totalDonation.toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+            const formattedDonation = totalDonation.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
             document.getElementById('totalUsers').innerText = `Tổng số người đăng ký: ${totalUsers}`;
             document.getElementById('totalDonation').innerText = `Tổng số tiền sẽ quyên góp: ${formattedDonation}`;
